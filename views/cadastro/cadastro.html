@@ -1,0 +1,409 @@
+<div class="auth-wrapper">
+	<div class="auth-content container">
+		<div style="text-align: center; margin-bottom: 20px;">
+			<img src="images/logo-horizontal.png" width="200" alt="" class="img-fluid mb-12" style="margin: 0 auto;">
+		    <div style="display:block; margin-top: 20px;">
+                <button class="btn btn-outline btn-outline-light col col-sm-2" ng-click="contato();">Fale Conosco</button>
+            </div>
+        </div>
+		<div class="row">
+            <div class="col-sm-12">
+                <div class="card" style="padding:0;" ng-show="passo == 1">
+                    <div class="card-header">
+                        <h5>Dados Pessoais</h5>
+                    </div>
+                    <div class="card-body" style="padding:20px;">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="nome">Nome completo *</label>
+                                    <input type="text" class="form-control" id="nome" placeholder="" ng-model="form.nome" maxlength="120">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="dtnascimento">Dt. Nascimento *</label>
+                                    <input type="tel" class="form-control" id="dtnascimento" tipo="data" placeholder="" ng-model="form.dtnascimento">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="cpf">CPF *</label>
+                                    <input type="tel" class="form-control" id="cpf" tipo="cpf" placeholder="" ng-model="form.cpf">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="whatsapp">Whatsapp *</label>
+                                    <input type="tel" class="form-control" id="whatsapp" placeholder="" ng-model="form.whatsapp">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label  for="logradouro">Endereço *</label>
+                                    <input type="text" class="form-control" id="logradouro" placeholder="" ng-model="form.endereco" maxlength="150">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label  for="numero">Número *</label>
+                                    <input type="text" class="form-control" id="numero" placeholder="" ng-model="form.numero" maxlength="20">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label  for="complemento">Complemento</label>
+                                    <input type="text" class="form-control" id="complemento" placeholder="" ng-model="form.complemento" maxlength="30">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label  for="bairro">Bairro *</label>
+                                    <input type="text" class="form-control" id="bairro" placeholder="" ng-model="form.bairro" maxlength="30">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label  for="cep">CEP *</label>
+                                    <input type="tel" class="form-control" id="cep" placeholder="" ng-model="form.cep">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label  for="cidade">Cidade *</label>
+                                    <input type="text" class="form-control" id="cidade" placeholder="" ng-model="form.cidade" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="uf">UF *</label>
+                                    <input type="text" class="form-control" id="uf" placeholder="" maxlength="2" ng-model="form.uf">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="uf">País *</label>
+                                    <input type="text" class="form-control" id="pais" placeholder="" maxlength="30" ng-model="form.pais">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center btn-page">
+                        <button class="btn btn-secondary col col-sm-4" ng-click="voltar();">Voltar</button>
+                        <button class="btn btn-primary col col-sm-4" ng-click="continuar(1);">Continuar</button>
+                    </div>
+                </div>
+                <div class="card" style="padding:0;" ng-show="passo == 2">
+                    <div class="card-header">
+                        <h5>Ficha de Anamnese</h5>
+                    </div>
+                    <div class="card-body" style="padding:20px;">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="possui-hipertensao">Possui hipertensão? *</label>
+                                    <select class="form-control" id="possui-hipertensao" ng-model="form.anamnese.hipertensao">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == form.anamnese.hipertensao" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="atividade-fisica">Pratica Atividade(s) Física(s)? *</label>
+                                    <select class="form-control" id="atividade-fisica" ng-model="form.anamnese.praticaatividade">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == form.anamnese.praticaatividade" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-9" ng-show="form.anamnese.praticaatividade == 1">
+                                <div class="form-group">
+                                    <label  for="qual-atividade">Qual(is) atividade(s) física(s)? *</label>
+                                    <input type="text" class="form-control" id="qual-atividade" placeholder="" ng-model="form.anamnese.qualatividade">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="fumante">Fumante? *</label>
+                                    <select class="form-control" id="fumante" ng-model="form.anamnese.fumante">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == form.anamnese.fumante" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-9" ng-show="form.anamnese.fumante == 1">
+                                <div class="form-group">
+                                    <label  for="fuma-quantotempo">Fuma há quanto tempo? *</label>
+                                    <input type="text" class="form-control" id="fuma-quantotempo" placeholder="" ng-model="form.anamnese.fumaquantotempo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="toma-medicamento">Toma algum medicamento? *</label>
+                                    <select class="form-control" id="toma-medicamento" ng-model="form.anamnese.tomamedicamento">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == form.anamnese.tomamedicamento" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-9" ng-show="form.anamnese.tomamedicamento == 1">
+                                <div class="form-group">
+                                    <label  for="qual-medicamento">Qual(is) medicamento(s)? *</label>
+                                    <input type="text" class="form-control" id="qual-medicamento" placeholder="" ng-model="form.anamnese.qualmedicamento">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="possui-doenca">Possui alguma doença? *</label>
+                                    <select class="form-control" id="possui-doenca" ng-model="form.anamnese.doenca">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == form.anamnese.doenca" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="form-group" ng-show="form.anamnese.doenca == 1">
+                                    <label  for="qual-doenca">Qual(is) doença(s)? *</label>
+                                    <input type="text" class="form-control" id="qual-doenca" placeholder="" ng-model="form.anamnese.qualdoenca">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="apresenta-dor">Apresenta alguma dor? *</label>
+                                    <select class="form-control" id="apresenta-dor" ng-model="form.anamnese.apresentador">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == form.anamnese.apresentador" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" ng-show="form.anamnese.apresentador == 1">
+                                <div class="form-group">
+                                    <label  for="qual-dor">Qual(is) dor(es)? *</label>
+                                    <input type="text" class="form-control" id="qual-dor" placeholder="" ng-model="form.anamnese.qualdor">
+                                </div>
+                            </div>
+                            <div class="col-sm-3" ng-show="form.anamnese.apresentador == 1">
+                                <div class="form-group">
+                                    <label  for="qual-movimento-dor">Movimento(s) que sente dor(es)? *</label>
+                                    <input type="text" class="form-control" id="qual-movimento-dor" placeholder="" ng-model="form.anamnese.qualmovimentosentedor">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="realizou-cirurgia">Já realizou alguma cirurgia? *</label>
+                                    <select class="form-control" id="realizou-cirurgia" ng-model="form.anamnese.fezcirurgia">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == form.anamnese.fezcirurgia" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" ng-show="form.anamnese.fezcirurgia == 1">
+                                <div class="form-group">
+                                    <label  for="qual-cirurgia">Qual(is) cirurgia(s)? *</label>
+                                    <input type="text" class="form-control" id="qual-cirurgia" placeholder="" ng-model="form.anamnese.qualcirurgia">
+                                </div>
+                            </div>
+                            <div class="col-sm-3" ng-show="form.anamnese.fezcirurgia == 1">
+                                <div class="form-group">
+                                    <label  for="tempo-cirurgia">Tempo da última cirurgia? *</label>
+                                    <input type="text" class="form-control" id="tempo-cirurgia" placeholder="" ng-model="form.anamnese.tempocirurgia">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label  for="realizou-cirurgia">Qual o seu objetivo? *</label>
+                                    <textarea class="form-control" ng-model="form.anamnese.objetivo" id="mensagem" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center btn-page">
+                        <button class="btn btn-secondary col col-sm-4" ng-click="voltar();">Voltar</button>
+                        <button class="btn btn-primary col col-sm-4" ng-click="continuar(2);">Continuar</button>
+                    </div>
+                </div>
+                <div class="card" style="padding:0;" ng-show="passo == 3">
+                    <div class="card-header">
+                        <h5>Selecione seu plano</h5>
+                    </div>
+                    <div class="card-body" style="padding:20px;">
+                        <h5>Selecione o plano que você desejar:</h5>
+                        <div class="row mt-4 justify-content-md-center">
+                            <div class="col col-md-4 col-xl-3" ng-repeat="plano in planos">
+                                <div class="card mb-3" style="padding:0;">
+                                    <img class="img-fluid card-img-top" src="{{urlBackoffice}}/Arquivo/{{plano.arquivo_pasta}}/{{plano.arquivo}}.{{plano.arquivo_extensao}}" alt="Card image cap" style="object-fit: none; height: 100px;">
+                                    <div class="card-body" style="padding: 20px;">
+                                        <h5 class="card-title">{{plano.titulo}}</h5>
+                                        <p class="card-text" ng-bind-html="plano.descricao"></p>
+                                        <p class="card-text">Valor: <b>{{plano.valor | currency:'R$ ':2}}</p>
+                                        <p class="card-text">
+                                            <button type="button" ng-click="setPlano(plano.id);" class="btn btn-outline-info btn-block has-ripple">Selecionar Plano</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center btn-page" style="display:none;">
+                        <button class="btn btn-secondary col col-sm-4" ng-click="voltar();">Voltar</button>
+                        <button class="btn btn-primary col col-sm-4" ng-click="continuar(3);">Continuar</button>
+                    </div>
+                </div>
+                <div class="card" style="padding:0;" ng-show="passo == 4">
+                    <div class="card-header">
+                        <h5>Selecione seu professor</h5>
+                    </div>
+                    <div class="card-body" style="padding:20px;">
+                        <h5>Selecione o professor que você desejar:</h5>
+                        <div class="row mt-4 justify-content-md-center">
+                            <div class="col col-md-4 col-xl-3" ng-repeat="professor in professores">
+                                <div class="card mb-3" style="padding:0;">
+                                    <img class="img-fluid card-img-top" ng-show="professor.arquivo" src="{{urlApi}}/api/geral/arquivo/{{professor.arquivo}}/ver" alt="Card image cap">
+                                    <div class="card-body" style="padding: 20px;">
+                                        <h5 class="card-title">{{professor.nome}}</h5>
+                                        <p class="card-text" ng-bind-html="professor.descricao"></p>
+                                        <p class="card-text">
+                                            <button type="button" ng-click="setProfessor(professor.id);" class="btn btn-outline-info btn-block has-ripple">Selecionar Professor</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="padding:0;" ng-show="passo == 5">
+                    <div class="card-header">
+                        <h5>Aula Experimental</h5>
+                    </div>
+                    <div class="card-body horarios" style="padding:20px;">
+                        <h5 ng-hide="showHorarios">Selecione abaixo um dia para a sua aula experimental:</h5>
+                        <h5 ng-show="showHorarios">Selecione o horário para sua aula:</h5>
+                        <table class="table" ng-hide="showHorarios">
+                            <thead>
+                                <tr>
+                                    <th><a href="javascript:;" ng-click="mesAnterior();">&laquo;</a></th>
+                                    <th style="text-align: center;" colspan="5">{{mes_atual}}</th>
+                                    <th style="text-align: right;"><a href="javascript:;" ng-click="proximoMes();">&raquo;</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-active">
+                                    <th style="text-align: center;">DOM</th>
+                                    <th style="text-align: center;">SEG</th>
+                                    <th style="text-align: center;">TER</th>
+                                    <th style="text-align: center;">QUA</th>
+                                    <th style="text-align: center;">QUI</th>
+                                    <th style="text-align: center;">SEX</th>
+                                    <th style="text-align: center;">SAB</th>
+                                </tr>
+                                <tr ng-repeat="semana in dias" ng-class="($index%2 == 0) ? 'table-active' : ''">
+                                    <td style="text-align: center;" ng-repeat="dia in semana" ng-class="dia.ativo ? '' : 'text-muted'" ng-bind-html="dia.dia"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row mt-4">
+                            <div class="col-sm-3" ng-show="showHorarios">
+                                <div class="form-group">
+                                    <label  for="horario">Horário *</label>
+                                    <select class="form-control" id="horario" ng-model="form.aula.horario">
+                                        <option value=""></option>
+                                        <option ng-repeat="horario in horarios[form.aula.diaindex]" value="{{horario}}">{{horario}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center btn-page" ng-show="form.aula.horario">
+                        <button class="btn btn-secondary col col-sm-4" ng-click="voltar();">Voltar</button>
+                        <button class="btn btn-primary col col-sm-4" ng-click="continuar(5);">Continuar</button>
+                    </div>
+                </div>
+                <div class="card" style="padding:0;" ng-show="passo == 6">
+                    <div class="card-header">
+                        <h5>Dados de acesso</h5>
+                    </div>
+                    <div class="card-body" style="padding:20px;">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label  for="email">Email *</label>
+                                    <input type="email" class="form-control" id="email" placeholder="" ng-model="form.email" maxlength="120">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label  for="reemail">Confirmar Email *</label>
+                                    <input type="email" class="form-control" id="reemail" placeholder="" ng-model="form.reemail" maxlength="120">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label  for="senha">Senha *</label>
+                                    <input type="password" class="form-control" id="senha" placeholder="" ng-model="form.senha">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label  for="resenha">Confirmar Senha *</label>
+                                    <input type="password" class="form-control" id="resenha" placeholder="" ng-model="form.resenha">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 m-t-20">
+                                <div class="form-group mb-4 text-left">
+                                    <input type="checkbox" id="aceito" ng-model="form.aceito">
+                                    <label for="aceito">Ao checar esta caixa, estou de acordo com os <a href="javascript:;" data-toggle="modal" data-target="#termosDeUso"><ins>Termos de Uso</ins></a></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center btn-page">
+                        <button class="btn btn-secondary col col-sm-4" ng-click="voltar();">Voltar</button>
+                        <button class="btn btn-primary col col-sm-4" ng-click="continuar(6);">Finalizar Cadastro</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+<div id="termosDeUso" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="termosDeUsoTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="termosDeUsoTitulo">Termos de Uso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div ng-repeat="dados in institucional" ng-class="$index+1 == institucional.length ? '' : 'mb-4'">
+                    <h5>{{dados.titulo}}</h5>
+                    <p class="text-dark">{{dados.texto}}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn  btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

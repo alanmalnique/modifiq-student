@@ -1,0 +1,39 @@
+<div ng-include="'views/subtemplate/menu.html'"></div>
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Regulamento Interno</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/#!/dashboard"><i class="fa fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:;">Regulamento Interno</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Regulamento Interno</h5>
+                    </div>
+                    <div class="card-body">
+                        <div ng-repeat="dados in institucional" ng-class="$index+1 == institucional.length ? '' : 'mb-4'">
+                            <h5>{{dados.titulo}}</h5>
+                            <p class="text-dark">{{dados.texto}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

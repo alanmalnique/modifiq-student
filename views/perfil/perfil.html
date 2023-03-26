@@ -1,0 +1,268 @@
+<div ng-include="'views/subtemplate/menu.html'"></div>
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Perfil</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/#!/dashboard"><i class="fa fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:;">Meu Perfil</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Dados Pessoais</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label  for="nome">Nome completo</label>
+                                    <input type="text" class="form-control" id="nome" placeholder="" ng-model="perfil.nome">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="dtnascimento">Dt. Nascimento</label>
+                                    <input type="tel" class="form-control" id="dtnascimento" placeholder="" ng-model="perfil.dtnascimento">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="whatsapp">Whatsapp</label>
+                                    <input type="tel" class="form-control" id="whatsapp" placeholder="" ng-model="perfil.whatsapp">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label  for="logradouro">Endereço</label>
+                                    <input type="text" class="form-control" id="logradouro" placeholder="" ng-model="perfil.endereco">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label  for="numero">Número</label>
+                                    <input type="text" class="form-control" id="numero" placeholder="" ng-model="perfil.numero">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label  for="complemento">Complemento</label>
+                                    <input type="text" class="form-control" id="complemento" placeholder="" ng-model="perfil.complemento">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label  for="bairro">Bairro</label>
+                                    <input type="text" class="form-control" id="bairro" placeholder="" ng-model="perfil.bairro">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label  for="cep">CEP</label>
+                                    <input type="tel" class="form-control" id="cep" placeholder="" ng-model="perfil.cep">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Dados de acesso</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>* Preencha o campo senha apenas se for ALTERÁ-LA.</strong></p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label  for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="" ng-model="perfil.email">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label  for="senha">Senha</label>
+                                    <input type="password" class="form-control" id="senha" placeholder="" ng-model="perfil.senha">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Ficha de Anamnese</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="possui-hipertensao">Possui hipertensão?</label>
+                                    <select class="form-control" id="possui-hipertensao" ng-model="perfil.anamnese.possui_hipertensao">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == perfil.anamnese.possui_hipertensao" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="atividade-fisica">Pratica Atividade(s) Física(s)?</label>
+                                    <select class="form-control" id="atividade-fisica" ng-model="perfil.anamnese.pratica_atividade">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == perfil.anamnese.pratica_atividade" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-9" ng-show="perfil.anamnese.pratica_atividade == 1">
+                                <div class="form-group">
+                                    <label  for="qual-atividade">Qual(is) atividade(s) física(s)?</label>
+                                    <input type="text" class="form-control" id="qual-atividade" placeholder="" ng-model="perfil.anamnese.quais_atividades">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="atividade-fisica">Fumante?</label>
+                                    <select class="form-control" id="atividade-fisica" ng-model="perfil.anamnese.fumante">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == perfil.anamnese.fumante" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-9" ng-show="perfil.anamnese.fumante == 1">
+                                <div class="form-group">
+                                    <label  for="qual-atividade">Fuma há quanto tempo?</label>
+                                    <input type="text" class="form-control" id="qual-atividade" placeholder="" ng-model="perfil.anamnese.fumante_tempo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="toma-medicamento">Toma algum medicamento?</label>
+                                    <select class="form-control" id="toma-medicamento" ng-model="perfil.anamnese.toma_medicamento">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == perfil.anamnese.toma_medicamento" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-9" ng-show="perfil.anamnese.toma_medicamento == 1">
+                                <div class="form-group">
+                                    <label  for="qual-medicamento">Qual(is) medicamento(s)?</label>
+                                    <input type="text" class="form-control" id="qual-medicamento" placeholder="" ng-model="perfil.anamnese.quais_medicamentos">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="possui-doenca">Possui alguma doença?</label>
+                                    <select class="form-control" id="possui-doenca" ng-model="perfil.anamnese.possui_doenca">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == perfil.anamnese.possui_doenca" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="form-group" ng-show="perfil.anamnese.possui_doenca == 1">
+                                    <label  for="qual-doenca">Qual(is) doença(s)?</label>
+                                    <input type="text" class="form-control" id="qual-doenca" placeholder="" ng-model="perfil.anamnese.quais_doencas">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="apresenta-dor">Apresenta alguma dor?</label>
+                                    <select class="form-control" id="apresenta-dor" ng-model="perfil.anamnese.apresenta_dor">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == perfil.anamnese.apresenta_dor" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" ng-show="perfil.anamnese.apresenta_dor == 1">
+                                <div class="form-group">
+                                    <label  for="qual-dor">Qual(is) dor(es)?</label>
+                                    <input type="text" class="form-control" id="qual-dor" placeholder="" ng-model="perfil.anamnese.quais_dores">
+                                </div>
+                            </div>
+                            <div class="col-sm-3" ng-show="perfil.anamnese.apresenta_dor == 1">
+                                <div class="form-group">
+                                    <label  for="qual-movimento-dor">Movimento(s) que sente dor(es)?</label>
+                                    <input type="text" class="form-control" id="qual-movimento-dor" placeholder="" ng-model="perfil.anamnese.movimento_dores">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label  for="realizou-cirurgia">Já realizou alguma cirurgia?</label>
+                                    <select class="form-control" id="realizou-cirurgia" ng-model="perfil.anamnese.realizou_cirurgia">
+                                        <option value=""></option>
+                                        <option ng-repeat="item in simnao" ng-selected="$index == perfil.anamnese.realizou_cirurgia" value="{{$index}}">{{item}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6" ng-show="perfil.anamnese.realizou_cirurgia == 1">
+                                <div class="form-group">
+                                    <label  for="qual-cirurgia">Qual(is) cirurgia(s)?</label>
+                                    <input type="text" class="form-control" id="qual-cirurgia" placeholder="" ng-model="perfil.anamnese.quais_cirurgias">
+                                </div>
+                            </div>
+                            <div class="col-sm-3" ng-show="perfil.anamnese.realizou_cirurgia == 1">
+                                <div class="form-group">
+                                    <label  for="tempo-cirurgia">Tempo da última cirurgia?</label>
+                                    <input type="text" class="form-control" id="tempo-cirurgia" placeholder="" ng-model="perfil.anamnese.tempo_ultima_cirurgia">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label  for="realizou-cirurgia">Qual o seu objetivo?</label>
+                                    <textarea class="form-control" id="mensagem" rows="5">{{perfil.anamnese.objetivo}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-footer text-center">
+                        <button class="btn btn-block btn-primary" ng-hide="!showButton" ng-click="salvar();">Salvar Informações</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

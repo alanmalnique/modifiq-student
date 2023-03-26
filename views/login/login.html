@@ -1,0 +1,27 @@
+<div class="auth-wrapper">
+	<div class="auth-content">
+		<div class="card">
+			<div class="row align-items-center text-center">
+				<div class="col-md-12">
+					<div class="card-body">
+						<img src="images/logo-vertical.png" width="120" alt="" class="img-fluid mb-12">
+						<div class="form-group mb-3">
+							<label class="floating-label" for="email">Email</label>
+							<input type="email" autocaptalize="off" class="form-control" ng-keyup="$event.keyCode == 13 && submit()" id="email" ng-model="form.email" placeholder="">
+						</div>
+						<div class="form-group mb-4">
+							<label class="floating-label" for="senha">Senha</label>
+							<input type="password" class="form-control" ng-keyup="$event.keyCode == 13 && submit()" id="senha" ng-model="form.senha" placeholder="">
+						</div>
+						<div class="form-group mb-4 text-left">
+							<input type="checkbox" ng-model="form.lembrar">
+							<label for="customCheck1">Lembrar</label>
+						</div>
+						<button class="btn btn-block btn-primary mb-4" ng-show="showButton" ng-click="submit()">Acessar</button>
+						<button type="button" class="btn btn-block btn-outline-secondary" ng-click="cadastro();">Cadastre-se</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

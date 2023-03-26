@@ -1,0 +1,100 @@
+<div ng-include="'views/subtemplate/menu.html'"></div>
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Registro Evolutivo</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/#!/dashboard"><i class="fa fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:;">Registro Evolutivo</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <div class="row">
+            <div class="col-xl-12 col-md-12">
+                <div class="card latest-update-card">
+                    <div class="card-header">
+                        <h5>Sua linha do tempo</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="shadow-none p-3 mb-5 m-t-20 bg-light rounded" ng-hide="registros.length">Nenhum registro evolutivo foi encontrado.</div>
+                        <div class="latest-update-box" ng-repeat="registro in registros">
+                            <div class="row p-t-30 p-b-30">
+                                <div class="col-auto text-right update-meta">
+                                    <p class="text-muted m-b-0 d-inline-flex">{{registro.datahora | date: 'dd/MM/yyyy'}}</p>
+                                    <i class="fa fa-image bg-twitter update-icon"></i>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <img src="{{urlApi}}/api/geral/arquivo/{{registro.arquivo}}/ver" class="embed-responsive embed-responsive-16by9" />
+                                    <h4>{{registro.titulo}}</h4>
+                                    <p class="text-muted m-t-10 m-b-0" ng-show="registro.descricao">{{registro.descricao}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center" ng-show="total > registros.length">
+                            <a href="javascript:;" ng-click="verMais()" class="b-b-primary text-primary">Ver mais [+]</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- prject ,team member start -->
+        </div>
+    </div>
+</div>
+<div class="fixed-button active">
+    <a href="javascript:;" data-toggle="modal" data-target="#modalUpload" aria-haspopup="true" aria-expanded="false" class="btn btn-md btn-primary has-ripple">
+        <i class="fa fa-plus" aria-hidden="true"></i> Novo Upload
+    </a>
+</div>
+<div id="modalUpload" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalUpload" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLiveLabel">Enviar nova foto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Imagem</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="arquivo">
+                                <label class="custom-file-label" for="arquivo">Escolher Arquivo</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="titulo">Título:</label>
+                            <input type="text" class="form-control" ng-model="upload.titulo" id="titulo" maxlength="30">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="descricao">Descrição (Max.: 150 caracteres):</label>
+                            <textarea class="form-control" ng-model="upload.descricao" id="descricao" maxlength="150" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn  btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn  btn-primary" ng-click="enviar();">Enviar Arquivo</button>
+            </div>
+        </div>
+    </div>
+</div>

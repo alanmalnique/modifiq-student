@@ -1,0 +1,54 @@
+<div ng-include="'views/subtemplate/menu.html'"></div>
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Agenda de aulas</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/#!/dashboard"><i class="fa fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:;">Agenda</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Agenda de aulas</h5>
+                        <span class="d-block m-t-5">{{mes_atual}}</span>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>DOM</th>
+                                    <th>SEG</th>
+                                    <th>TER</th>
+                                    <th>QUA</th>
+                                    <th>QUI</th>
+                                    <th>SEX</th>
+                                    <th>SAB</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="semana in dias" ng-class="($index%2 == 0) ? 'table-active' : ''">
+                                    <td ng-repeat="dia in semana" ng-class="dia.ativo ? '' : 'text-muted'" ng-bind-html="dia.dia"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

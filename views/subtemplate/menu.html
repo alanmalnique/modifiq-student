@@ -1,0 +1,112 @@
+<!-- [ navigation menu ] start -->
+<nav class="pcoded-navbar menu-light " ng-controller="menuController">
+	<div class="navbar-wrapper  ">
+		<div class="navbar-content scroll-div " >
+			
+			<div class="">
+				<div class="main-menu-header m-b-50">
+					<img class="img-radius" src="{{usuario.arquivo}}" alt="User-Profile-Image">
+					<div class="user-details">
+						<div id="more-details">Olá, {{usuario.nome}} <i class="fa fa-caret-down"></i></div>
+					</div>
+				</div>
+				<div class="collapse" id="nav-user-link">
+					<ul class="list-unstyled">
+						<li class="list-group-item"><a href="/#!/perfil"><i class="feather icon-user m-r-5"></i>Perfil</a></li>
+						<li class="list-group-item"><a href="javascript:;" ng-click="logout()"><i class="feather icon-log-out m-r-5"></i>Sair</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<ul class="nav pcoded-inner-navbar ">
+				<li class="nav-item" ng-class="pagina == 'dashboard' ? 'active' : ''">
+				    <a href="/#!/dashboard" class="nav-link ">
+				    	<span class="pcoded-micon">
+				    		<i class="fa fa-home"></i>
+				    	</span>
+				    	<span class="pcoded-mtext">Dashboard</span>
+				    </a>
+				</li>
+				<li class="nav-item pcoded-menu-caption">
+				    <label>Menu</label>
+				</li>
+				<li class="nav-item" ng-class="pagina == 'agenda' ? 'active' : ''">
+				    <a href="/#!/agenda" class="nav-link ">
+				    	<span class="pcoded-micon">
+				    		<i class="fa fa-calendar"></i>
+				    	</span>
+				    	<span class="pcoded-mtext">Agenda de aulas</span>
+				    </a>
+				</li>
+				<li class="nav-item" ng-class="pagina == 'registro-evolutivo' ? 'active' : ''">
+				    <a href="/#!/registro-evolutivo" class="nav-link ">
+				    	<span class="pcoded-micon">
+				    		<i class="fa fa-clock"></i>
+				    	</span>
+				    	<span class="pcoded-mtext">Registro Evolutivo</span>
+				    </a>
+				</li>
+				<li class="nav-item" ng-class="pagina == 'mensalidade' ? 'active' : ''">
+				    <a href="/#!/mensalidade" class="nav-link ">
+				    	<span class="pcoded-micon">
+				    		<i class="fa fa-money-bill"></i>
+				    	</span>
+				    	<span class="pcoded-mtext">Mensalidade</span>
+				    </a>
+				</li>
+				<li class="nav-item" ng-class="pagina == 'contato' ? 'active' : ''">
+				    <a href="/#!/contato" class="nav-link ">
+				    	<span class="pcoded-micon">
+				    		<i class="fa fa-mail-bulk"></i>
+				    	</span>
+				    	<span class="pcoded-mtext">Contato</span>
+				    </a>
+				</li>
+				<li class="nav-item">
+				    <a href="javascript:;" ng-click="enviarMensagem()" class="nav-link ">
+				    	<span class="pcoded-micon">
+				    		<i class="fa fa-comment"></i>
+				    	</span>
+				    	<span class="pcoded-mtext">Falar conosco</span>
+				    </a>
+				</li>
+				<!--<li class="nav-item" ng-class="pagina == 'redes-sociais' ? 'active' : ''">
+				    <a href="/#!/redes-sociais" class="nav-link ">
+				    	<span class="pcoded-micon">
+				    		<i class="fa fa-share-alt"></i>
+				    	</span>
+				    	<span class="pcoded-mtext">Redes Sociais ModifiQ</span>
+				    </a>
+				</li>-->
+				<li class="nav-item" ng-class="pagina == 'regulamento' ? 'active' : ''">
+				    <a href="/#!/regulamento" class="nav-link ">
+				    	<span class="pcoded-micon">
+				    		<i class="fa fa-list"></i>
+				    	</span>
+				    	<span class="pcoded-mtext">Regulamento Interno</span>
+				    </a>
+				</li>
+			</ul>
+			
+		</div>
+	</div>
+</nav>
+<!-- [ navigation menu ] end -->
+<!-- [ Header ] start -->
+<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+	<div class="m-header">
+		<a class="mobile-menu" ng-click="collapse()" href="javascript:;"><span></span></a>
+		<a href="javascript:;" class="b-brand">
+			<!-- ========   change your logo hear   ============ -->
+			<img src="images/logo-horizontal.png" width="95" alt="" class="logo">
+			<img src="images/logo-icon.png" alt="" class="logo-thumb">
+		</a>
+		<a href="javascript:;" class="mob-toggler">
+			<i class="feather icon-more-vertical"></i>
+		</a>
+	</div>
+</header>
+<!-- [ Header ] end -->
+<div class="fixed-button active" ng-hide="pagina == 'registro-evolutivo'">
+    <button type="button" ng-click="acessarAula();" class="btn btn-warning has-ripple">ACESSAR SUA AULA</button>
+</div>

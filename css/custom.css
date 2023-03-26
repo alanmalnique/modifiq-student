@@ -1,0 +1,1 @@
+.horarios table tr td:not(.text-muted):hover span{ background: #3b581a; cursor:pointer; }

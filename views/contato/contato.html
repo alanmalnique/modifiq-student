@@ -1,0 +1,78 @@
+<div ng-include="'views/subtemplate/menu.html'"></div>
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Contato</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/#!/dashboard"><i class="fa fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:;">Contato</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Formulário de Contato</h5>
+                        <span class="d-block m-t-5">Preencha o formulário para enviar sua dúvida, sugestão, elogio.</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group fill">
+                                    <label class="floating-label" for="nome">Nome completo</label>
+                                    <input type="text" class="form-control" ng-model="contato.nome" id="nome" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="floating-label" for="email">Email</label>
+                                    <input type="email" class="form-control" ng-model="contato.email" id="email" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="floating-label" for="celular">Celular</label>
+                                    <input type="tel" class="form-control" ng-model="contato.celular" id="celular" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <select ng-model="contato.assunto" class="form-control" id="assunto">
+                                        <option value="">Assunto</option>
+                                        <option value="Dúvida">Dúvida</option>
+                                        <option value="Elogio">Elogio</option>
+                                        <option value="Sugestão">Sugestão</option>
+                                        <option value="Outros">Outros</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="mensagem">Sua mensagem</label>
+                                    <textarea class="form-control" ng-model="contato.mensagem" id="mensagem" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-block btn-primary" ng-click="enviar();">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
